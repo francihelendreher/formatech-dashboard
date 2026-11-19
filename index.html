@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FormaTech | Sales Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f6f4fb;--surface:#fff;--ink:#24213a;--muted:#88849b;--line:#ece9f3;--purple:#7654c8;--purple2:#a58adf;--lav:#eee8fb;--pink:#d9a6c7;--green:#299b78;--red:#cf667c;--shadow:0 12px 35px rgba(49,35,86,.07)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
@@ -18,18 +21,105 @@ main{padding:30px 34px 42px;max-width:1600px;width:100%;margin:auto}.top{display
 .note{margin-top:15px;background:#f0ebfa;border:1px solid #e5dcf6;color:#625579;padding:12px 14px;border-radius:12px;font-size:11px}.footer{display:flex;justify-content:space-between;gap:10px;color:#a09aac;font-size:10px;padding:18px 3px 0}
 @media(max-width:1100px){.app{grid-template-columns:205px 1fr}.filters{grid-template-columns:repeat(3,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.app{display:block}.side{padding:14px 16px;gap:12px}.brand{padding:0}.navlabel,.sidefoot{display:none}.nav{display:flex;overflow:auto;gap:5px}.nav a{white-space:nowrap;padding:9px 11px}.nav a:not(.active){display:none}.nav a.active{display:flex}.side{display:block}.nav{margin-top:12px}main{padding:22px 14px}.top{display:block}.period{display:inline-block;margin-top:12px}.filters{grid-template-columns:repeat(2,1fr)}.kpis{gap:9px}.card{padding:14px}.grid2,.gridEqual{grid-template-columns:1fr}.chart{height:220px}.value{font-size:21px}}
+
+/* ===== FORMA TECH PREMIUM: camada visual; cálculos e componentes preservados ===== */
+:root{
+ --bg:#f7f5fc;--surface:#ffffff;--ink:#29223b;--muted:#8b849d;--line:#eee9f5;
+ --purple:#7651c8;--purple2:#a88ae5;--lav:#f0eafb;--pink:#e8bfd9;
+ --green:#269879;--red:#c85d79;--shadow:0 14px 38px rgba(55,35,91,.075);
+}
+body{font-family:'Nunito',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Arial,sans-serif;background:radial-gradient(ellipse at 82% 0%,#f0e9fb 0%,transparent 34%),var(--bg);color:var(--ink);font-size:14px}
+.side{background:linear-gradient(165deg,#302344 0%,#241b35 58%,#3c2b54 100%);padding:30px 19px;box-shadow:8px 0 32px rgba(39,26,61,.08)}
+.logo{background:linear-gradient(135deg,#f0d8ee 0%,#b89bea 52%,#8e6bd2 100%);color:#38234f;box-shadow:0 7px 18px rgba(180,145,226,.25);border:1px solid rgba(255,255,255,.28)}
+.brand strong{font-size:16px;font-weight:900;letter-spacing:.1px}.brand small{letter-spacing:1px;font-size:9px;color:#c8bbd9}
+.navlabel{color:#aa9cbe;font-weight:800}.nav a{border:1px solid transparent;transition:background .2s ease,border-color .2s ease,transform .2s ease}.nav a.active,.nav a:hover{background:linear-gradient(100deg,rgba(167,137,222,.24),rgba(167,137,222,.09));border-color:rgba(205,184,237,.16);color:#fff;transform:translateX(2px)}
+main{padding:34px 38px 46px}.eyebrow{font-weight:900;letter-spacing:1.7px}.top h1{font-size:30px;font-weight:900;letter-spacing:-.7px}.sub{font-size:14px}.period{background:rgba(255,255,255,.82);border:1px solid #e9e1f3;border-radius:999px;padding:10px 16px;box-shadow:0 5px 16px rgba(55,35,91,.045);font-weight:800}
+.filters{background:rgba(255,255,255,.88);border:1px solid #ece5f4;border-radius:19px;padding:17px;box-shadow:0 10px 28px rgba(55,35,91,.045);backdrop-filter:blur(8px)}
+.field label{font-weight:900;letter-spacing:1.1px}.field select,.field input{background:#fbfaff;border:1px solid #e9e3f1;border-radius:11px;padding:11px 12px;font-family:inherit;font-weight:700;transition:border-color .2s,box-shadow .2s}.field select:focus,.field input:focus{border-color:#a88ae5;box-shadow:0 0 0 3px rgba(168,138,229,.15)}
+.kpis{gap:16px}.card{border:1px solid #eee8f5;border-radius:20px;padding:20px 21px;box-shadow:0 12px 30px rgba(55,35,91,.055);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}.card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(55,35,91,.09);border-color:#e2d6f1}
+.kpis .card{position:relative;overflow:hidden}.kpis .card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#a98ae4,#e6bfdc);border-radius:0 5px 5px 0}.kpihead{font-size:12px;font-weight:800;color:#827991}.kpiicon{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,#f2ecfc,#eadff8);color:#7651c8;font-weight:900}.value{font-size:clamp(22px,2.2vw,29px);font-weight:900;letter-spacing:-.6px;color:#302443;margin:13px 0 5px}.hint{font-size:12px;font-weight:600}
+.grid2,.gridEqual{gap:17px}.cardtitle h2{font-size:15px;font-weight:900;letter-spacing:-.1px;color:#332746}.cardtitle p{font-size:12px;font-weight:600}.legend{background:#f3eefb;color:#7651c8;border-radius:999px;padding:6px 10px;font-weight:800}
+.chart{height:255px}.chart text{font-family:'Nunito',sans-serif;fill:#9188a1;font-size:11px;font-weight:700}.chart .gridline{stroke:#f0ecf5;stroke-dasharray:3 5}.chart .axis{stroke:#e7e0ee}.chart .bar{fill:url(#barGrad)}.chart .bar:hover{fill:#7651c8}.chart .line{stroke:#805bd0;stroke-width:3.5}.chart .dot{stroke:#805bd0;stroke-width:2.5}.chart .area{fill:url(#areaGrad)}
+.ranklist{gap:17px;padding:8px 0}.rankrow{font-size:12px;gap:12px}.rankname{font-weight:800;color:#554b65}.track{height:10px;background:#f1edf7;border-radius:999px}.fill{background:linear-gradient(90deg,#d6c5f2 0%,#9d7cdd 55%,#7651c8 100%);box-shadow:0 2px 7px rgba(118,81,200,.18)}.rankval{font-weight:900;color:#49365f}
+.pill{padding:5px 10px;font-size:10px;font-weight:900;letter-spacing:.2px}.pill.Pago{background:#e5f5ef;color:#218467}.pill.Pendente{background:#fff3df;color:#a56c18}.pill.Cancelado{background:#fbeaf0;color:#b64c6b}
+table{font-size:12px}th{font-size:10px;font-weight:900;color:#8b819b;padding:13px 10px}td{padding:13px 10px;color:#5d536d;font-weight:650;border-bottom:1px solid #f1edf5}tbody tr:hover{background:#faf7ff}
+.note{margin-top:17px;background:linear-gradient(110deg,#f1ebfb,#fbf0f7);border:1px solid #e8def4;color:#625475;border-radius:15px;padding:15px 17px;font-size:12px;line-height:1.65}.footer{font-size:11px;font-weight:700;color:#9a91a7}
+@media(max-width:760px){main{padding:22px 14px 32px}.top h1{font-size:25px}.filters{padding:13px;border-radius:15px}.card{border-radius:17px;padding:16px}.chart{height:225px}.kpis .card:hover{transform:none}}
+
+
+/* Sidebar information architecture */
+.side{gap:22px;padding:25px 16px 18px;min-height:100vh}
+.workspace-tag{display:flex;align-items:center;gap:8px;margin:-7px 8px 1px;padding:8px 10px;border:1px solid rgba(157,190,204,.15);border-radius:7px;color:#91a9b5;font-size:9px;font-weight:900;letter-spacing:1.15px}
+.workspace-dot{width:6px;height:6px;border-radius:50%;background:#5bb89a;box-shadow:0 0 0 3px rgba(91,184,154,.12)}
+.side-section{display:grid;gap:11px}.navlabel{padding:0 10px;margin:0;color:#78909d;font-size:9px;letter-spacing:1.35px}
+.nav{display:grid;gap:4px}.nav a{display:flex;align-items:center;gap:11px;padding:11px 10px;margin:0;border-radius:8px;font-size:12px;font-weight:750;min-height:41px}.nav .ico{width:19px;font-size:16px;color:#8da8b5}.nav a.active .ico,.nav a:hover .ico{color:#b8dbe4}.nav-arrow{margin-left:auto;color:#7895a3;font-size:19px;line-height:1;font-weight:400;opacity:0;transition:opacity .15s}.nav a.active .nav-arrow,.nav a:hover .nav-arrow{opacity:1}
+.side-data{margin-top:1px}.data-card{padding:13px 12px 11px;border:1px solid rgba(157,190,204,.16);border-radius:10px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}.data-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.data-symbol{display:grid;place-items:center;width:25px;height:25px;border-radius:7px;background:rgba(91,155,176,.17);color:#9bc6d2;font-size:14px}.data-status{font-size:8px;letter-spacing:1px;font-weight:900;color:#83c9ae;background:rgba(73,161,128,.12);padding:4px 6px;border-radius:4px}.data-title{display:block;color:#edf5f7;font-size:12px;font-weight:850}.data-caption{display:block;color:#91a6b1;font-size:10px;margin-top:3px}.data-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.data-stats div{padding:8px;background:rgba(7,20,29,.18);border-radius:6px}.data-stats strong{display:block;color:#f2f7f8;font-size:17px;line-height:1.1;font-weight:900}.data-stats small{display:block;color:#8fa6b1;font-size:9px;margin-top:3px}.data-progress{height:3px;background:rgba(255,255,255,.1);border-radius:4px;margin-top:12px;overflow:hidden}.data-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,#4f91a5,#78b5bd);border-radius:4px}.data-footnote{display:block;color:#8fa6b1;font-size:9px;margin-top:7px}.side-spacer{flex:1;min-height:10px}.sidefoot{margin-top:0;padding:13px 9px 2px;border-top:1px solid #304957;color:#8fa4af;font-size:10px;line-height:1.6}.sidefoot-mark{font-size:11px;font-weight:950;letter-spacing:1.4px;color:#d9e7eb;margin-bottom:4px}.sidefoot-mark span{color:#78a9b8;font-size:9px;letter-spacing:1.8px}.sidefoot small{display:block;color:#6f8793;font-size:9px;margin-top:2px}
+@media(max-width:760px){.side{min-height:0;gap:12px}.side-data,.workspace-tag{display:none}.side-spacer{display:none}.sidefoot{display:none}.nav{display:flex;flex-wrap:wrap}.nav a{flex:1;min-width:130px}}
+
 </style>
+
+<style id="premium-saas-refresh">
+:root{
+ --bg:#f4f6f8;--surface:#ffffff;--ink:#182633;--muted:#758391;--line:#e7edf1;
+ --purple:#286b83;--purple2:#5b9bb0;--lav:#eaf3f6;--pink:#dce9ed;
+ --green:#168568;--red:#c45c67;--shadow:0 5px 18px rgba(25,45,60,.045);
+}
+*{box-sizing:border-box}
+body{font-family:'Nunito',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Arial,sans-serif;background:#f4f6f8;color:#1b2a36;font-size:14px}
+.app{grid-template-columns:238px minmax(0,1fr)}
+.side{background:#172b3a;color:#edf4f7;padding:27px 17px;gap:30px;box-shadow:5px 0 22px rgba(18,39,53,.06)}
+.logo{background:linear-gradient(145deg,#4f91a5,#286b83);color:#fff;box-shadow:0 5px 14px rgba(40,107,131,.2);border:0;border-radius:11px}
+.brand strong{font-weight:900;letter-spacing:.15px}.brand small{color:#a8bac4;letter-spacing:1.1px}
+.navlabel{color:#8097a5;font-weight:800}.nav a{color:#bdcbd2;border:1px solid transparent;border-radius:9px;transition:background .18s,border-color .18s}.nav a.active,.nav a:hover{background:#243f50;border-color:#34596b;color:#fff;transform:none}
+.sidefoot{border-color:#304957;color:#8fa4af}
+main{padding:32px 36px 44px;max-width:1580px}
+.eyebrow{color:#347f94;font-weight:900;letter-spacing:1.45px}.top h1{color:#172b3a;font-size:29px;font-weight:900;letter-spacing:-.7px}.sub{color:#758391}.period{background:#fff;border:1px solid #e4ebef;border-radius:9px;color:#526674;box-shadow:none;font-weight:800}
+.filters{background:#fff;border:1px solid #e5ebef;border-radius:12px;padding:15px 16px;box-shadow:0 3px 12px rgba(25,45,60,.025)}
+.field label{color:#758391;font-weight:900;letter-spacing:.85px}.field select,.field input{background:#fbfcfd;border:1px solid #e2e9ed;border-radius:8px;color:#243746;font-family:inherit;font-weight:700}.field select:focus,.field input:focus{border-color:#5b9bb0;box-shadow:0 0 0 3px rgba(55,129,151,.12)}
+.kpis{gap:13px}.card{background:#fff;border:1px solid #e6ecef;border-radius:13px;padding:18px 19px;box-shadow:0 4px 15px rgba(25,45,60,.035);transition:box-shadow .18s,border-color .18s}.card:hover{transform:none;box-shadow:0 8px 22px rgba(25,45,60,.065);border-color:#d5e1e7}
+.kpis .card:before{width:3px;background:#4d91a5}.kpihead{color:#71818d;font-size:11px;font-weight:800}.kpiicon{width:31px;height:31px;border-radius:9px;background:#eaf3f6;color:#286b83;font-weight:900}.value{color:#172b3a;font-size:clamp(22px,2.1vw,28px);font-weight:900;letter-spacing:-.8px}.hint{color:#81909a;font-size:11px;font-weight:600}
+.grid2,.gridEqual{gap:14px}.cardtitle h2{color:#1e303d;font-size:14px;font-weight:900}.cardtitle p{color:#81909a;font-size:11px}.legend{background:#edf5f7;color:#286b83;border-radius:7px;padding:5px 9px;font-weight:900}
+.chart{height:250px}.chart text{font-family:'Nunito',sans-serif;fill:#82919b;font-size:10px;font-weight:700}.chart .gridline{stroke:#edf1f3;stroke-dasharray:3 4}.chart .axis{stroke:#e3e9ed}.chart .bar{fill:url(#barGrad)}.chart .bar:hover{fill:#245e73}.chart .line{stroke:#347f94;stroke-width:2.8}.chart .area{fill:url(#areaGrad)}.chart .dot{stroke:#347f94;stroke-width:2.3}
+.ranklist{gap:14px}.rankname{color:#50616d;font-weight:700}.track{height:7px;background:#edf2f4;border-radius:8px}.fill{background:linear-gradient(90deg,#78adba,#286b83);border-radius:8px}.rankval{color:#294554;font-weight:900}
+.pill{font-weight:900}.pill.Pago{background:#e8f5f0;color:#187b60}.pill.Pendente{background:#fff5e5;color:#a66b19}.pill.Cancelado{background:#fbecef;color:#b34f62}
+.tablewrap{border-radius:9px}table{font-size:11px}th{color:#82909a;border-bottom:1px solid #e8edf0}td{color:#52616c;border-bottom:1px solid #f0f3f5}tbody tr:hover{background:#f7fafb}
+.note{background:#f0f5f7;border:1px solid #e1eaee;color:#5b6d78;border-radius:10px;padding:12px 14px}.footer{color:#8c9aa3}
+@media(max-width:760px){.app{display:block}.side{padding:14px 16px}.side .nav a.active{background:#243f50}main{padding:22px 14px}.card{border-radius:11px}.filters{box-shadow:none}}
+</style>
+
 </head>
 <body>
 <div class="app">
 <aside class="side">
   <div class="brand"><div class="logo">F</div><div><strong>FormaTech</strong><small>EDUCAÇÃO PROFISSIONAL</small></div></div>
-  <div class="navlabel">Workspace</div>
-  <nav class="nav"><a class="active" href="#overview"><span class="ico">◫</span>Visão geral</a><a href="#performance"><span class="ico">↗</span>Desempenho</a><a href="#sales"><span class="ico">▤</span>Vendas</a></nav>
-  <div class="sidefoot">SALES INTELLIGENCE<br>Dashboard demonstrativo · 2026</div>
+  <div class="workspace-tag"><span class="workspace-dot"></span> AMBIENTE ANALÍTICO</div>
+  <div class="side-section">
+    <div class="navlabel">Workspace</div>
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="active" href="#overview"><span class="ico">▦</span><span>Visão geral</span><span class="nav-arrow">›</span></a>
+      <a href="#performance"><span class="ico">⌁</span><span>Desempenho</span><span class="nav-arrow">›</span></a>
+      <a href="#sales"><span class="ico">▤</span><span>Detalhamento de vendas</span><span class="nav-arrow">›</span></a>
+    </nav>
+  </div>
+  <div class="side-section side-data">
+    <div class="navlabel">Base de dados</div>
+    <div class="data-card">
+      <div class="data-card-head"><span class="data-symbol">▧</span><span class="data-status">TRATADA</span></div>
+      <strong class="data-title">Vendas FormaTech</strong>
+      <span class="data-caption">Base consolidada para análise</span>
+      <div class="data-stats">
+        <div><strong>119</strong><small>registros</small></div>
+        <div><strong>12</strong><small>campos</small></div>
+      </div>
+      <div class="data-progress"><span></span></div>
+      <small class="data-footnote">1 duplicidade tratada</small>
+    </div>
+  </div>
+  <div class="side-spacer"></div>
+  <div class="sidefoot"><div class="sidefoot-mark">FT <span>ANALYTICS</span></div><div>Projeto de portfólio</div><small>HTML · CSS · JavaScript</small></div>
 </aside>
 <main id="overview">
-  <div class="top"><div><div class="eyebrow">Painel de Gestão comercial</div><h1>Visão geral de vendas</h1><div class="sub">Acompanhe resultados, rentabilidade e desempenho da FormaTech.</div></div><div class="period">● Dados do projeto · 2026</div></div>
+  <div class="top"><div><div class="eyebrow">Painel de inteligência comercial</div><h1>Visão geral de vendas</h1><div class="sub">Acompanhe resultados, rentabilidade e desempenho da FormaTech.</div></div><div class="period">● Dados do projeto · 2026</div></div>
   <section class="filters" aria-label="Filtros do dashboard">
     <div class="field"><label for="period">Período</label><select id="period"><option value="all">Todo o período</option></select></div>
     <div class="field"><label for="course">Curso</label><select id="course"><option value="all">Todos os cursos</option></select></div>
@@ -77,7 +167,7 @@ function filtered(){return DATA.filter(d=>{
 function svgBarChart(el,items,formatter=money){
  if(!items.length){el.innerHTML='<div class="empty">Sem dados para os filtros selecionados.</div>';return}
  const W=520,H=245,L=48,R=12,T=12,B=35,plotW=W-L-R,plotH=H-T-B,max=Math.max(1,...items.map(x=>x.value))*1.12;
- let s=`<svg viewBox="0 0 ${W} ${H}" role="img">`;
+ let s=`<svg viewBox="0 0 ${W} ${H}" role="img"><defs><linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5b9bb0"/><stop offset="100%" stop-color="#286b83"/></linearGradient></defs>`;
  for(let i=0;i<=4;i++){let y=T+plotH*i/4,v=max*(1-i/4);s+=`<line class="gridline" x1="${L}" y1="${y}" x2="${W-R}" y2="${y}"/><text x="${L-7}" y="${y+3}" text-anchor="end">${formatter(v,true)}</text>`}
  const step=plotW/items.length,bw=Math.min(34,step*.56);
  items.forEach((it,i)=>{let h=it.value/max*plotH,x=L+i*step+(step-bw)/2,y=T+plotH-h;s+=`<rect class="bar" x="${x}" y="${y}" width="${bw}" height="${Math.max(0,h)}" rx="5"><title>${it.label}: ${formatter(it.value)}</title></rect><text x="${x+bw/2}" y="${H-12}" text-anchor="middle">${it.label}</text>`});
@@ -87,7 +177,7 @@ function compact(v){return v>=1000000?(v/1000000).toFixed(1)+' mi':v>=1000?(v/10
 function lineChart(el,items){
  if(!items.length){el.innerHTML='<div class="empty">Sem dados para os filtros selecionados.</div>';return}
  const W=650,H=245,L=52,R=18,T=14,B=35,plotW=W-L-R,plotH=H-T-B,max=Math.max(1,...items.map(x=>x.value))*1.15;
- let s=`<svg viewBox="0 0 ${W} ${H}"><defs><linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#a58adf" stop-opacity=".28"/><stop offset="100%" stop-color="#a58adf" stop-opacity="0"/></linearGradient></defs>`;
+ let s=`<svg viewBox="0 0 ${W} ${H}"><defs><linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#5b9bb0" stop-opacity=".28"/><stop offset="100%" stop-color="#5b9bb0" stop-opacity="0"/></linearGradient></defs>`;
  for(let i=0;i<=4;i++){let y=T+plotH*i/4,v=max*(1-i/4);s+=`<line class="gridline" x1="${L}" y1="${y}" x2="${W-R}" y2="${y}"/><text x="${L-8}" y="${y+3}" text-anchor="end">${compact(v)}</text>`}
  const pts=items.map((it,i)=>({x:L+(items.length===1?plotW/2:i*plotW/(items.length-1)),y:T+plotH-(it.value/max*plotH),...it}));
  const path=pts.map((p,i)=>(i?'L':'M')+p.x+' '+p.y).join(' ');
